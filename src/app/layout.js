@@ -1,4 +1,28 @@
+import Header from "@/components/Header";
+import {Playfair} from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
+import Footer from "@/components/Footer";
+
+const playfair = Playfair({
+  subsets: ["latin"],
+  variable: "--font-playfair",
+  display: "swap",
+  weight: ["400","500", "600", "700"],
+  style: ["normal", "italic"],
+  preload: true,
+  fallback: ["system-ui", "sans-serif"],
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+  weight: ["400", "500", "600", "700"],
+  style: ["normal", "italic"],
+  preload: true,
+  fallback: ["system-ui", "sans-serif"],
+});
 
 export const metadata = {
   title: "Create Next App",
@@ -7,9 +31,13 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body>
-        {children}
+    <html lang="en" className={inter.className}>
+      <body className="min-h-screen flex flex-col bg-background text-foreground">
+        <Header />
+        <main className="flex-1 pt-24">
+          {children}
+        </main>
+        <Footer />
       </body>
     </html>
   );
