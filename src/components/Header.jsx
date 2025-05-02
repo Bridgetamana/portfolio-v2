@@ -57,7 +57,7 @@ export default function Header() {
           </div>
           <Link
             href="/contact"
-            className="relative z-10 px-5 py-2 font-light hover:text-gold transition-colors"
+            className="relative z-10 px-5 py-2 font-light transition-colors cutout-button"
           >
             Contact
           </Link>
