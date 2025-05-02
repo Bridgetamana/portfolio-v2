@@ -1,1 +1,121 @@
 @import "tailwindcss";
+
+@layer utilities {
+  :root {
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 5%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 100%;
+    --primary-foreground: 0 0% 3.9%;
+    --secondary: 0 0% 10%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 12%;
+    --muted-foreground: 0 0% 65%;
+    --accent: 45 37% 45%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 15%;
+    --input: 0 0% 15%;
+    --ring: 45 37% 45%;
+    --radius: 0.75rem;
+  }
+}
+
+@layer utilities {
+  .border-border {
+    border-color: hsl(var(--border));
+  }
+  .bg-background {
+    background-color: hsl(var(--background));
+  }
+  .text-foreground {
+    color: hsl(var(--foreground));
+  }
+  .menu-item {
+    position: relative;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    font-weight: 300;
+    letter-spacing: 0.05em;
+  }
+  .menu-item::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 1px;
+    background-color: hsl(var(--accent));
+    transition-property: all;
+    transition-duration: 300ms;
+    transform: translateX(-50%);
+  }
+  .menu-item:hover::after {
+    width: 50%;
+  }
+  .menu-item.active::after {
+    width: 50%;
+  }
+  .stripe-bg {
+    background-image: repeating-linear-gradient(
+      to right,
+      #0a0a0a,
+      #0a0a0a 50px,
+      #070707 50px,
+      #070707 100px
+    );
+  }
+  .social-icon {
+    padding: 0.75rem;
+    border-radius: 9999px;
+    border-width: 1px;
+    border-color: rgb(255 255 255 / 0.1);
+    transition-property: color, background-color, border-color;
+    transition-duration: 300ms;
+  }
+  .social-icon:hover {
+    background-color: rgb(var(--accent) / 0.1);
+    border-color: hsl(var(--accent));
+  }
+  .button-outline {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-width: 1px;
+    border-color: rgb(255 255 255 / 0.2);
+    border-radius: 0.375rem;
+    transition-property: all;
+    transition-duration: 300ms;
+  }
+  .button-outline:hover {
+    border-color: hsl(var(--accent));
+    color: hsl(var(--accent));
+  }
+  .cutout-button {
+    position: relative;
+    overflow: hidden;
+    border-radius: 9999px;
+  }
+  .cutout-button::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: hsl(var(--secondary) / 0.5);
+    border-width: 1px;
+    border-color: rgb(255 255 255 / 0.1);
+    border-radius: 9999px;
+    transition-property: all;
+    transition-duration: 300ms;
+  }
+  .cutout-button:hover::before {
+    background-color: hsl(var(--secondary) / 0.7);
+    border-color: rgb(var(--accent) / 0.3);
+  }
+}

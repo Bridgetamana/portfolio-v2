@@ -34,7 +34,7 @@ export default function RootLayout({ children }) {
     <html lang="en" className={inter.className}>
       <body className="min-h-screen flex flex-col bg-background text-foreground">
         <Header />
-        <main className="flex-1 pt-24">
+        <main className="flex-1">
           {children}
         </main>
         <Footer />
