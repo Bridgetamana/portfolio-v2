@@ -12,7 +12,7 @@ export default function about() {
             <div className="flex justify-center mb-8 md:mb-0">
               <div className="relative w-64 h-64 border border-white/10 rounded-md p-4">
                 <div className="w-full h-full flex items-center justify-center">
-                    <Logo />
+                  <Logo />
                 </div>
                 <div className="absolute inset-0 backdrop-blur-sm bg-black/20"></div>
               </div>
@@ -20,14 +20,23 @@ export default function about() {
 
             <div>
               <p className="text-white/80 mb-6 leading-relaxed">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit recusandae dolore, tempora soluta corporis reprehenderit adipisci, aliquid nisi sapiente vel animi? Dicta iure itaque laboriosam a sapiente ullam nihil voluptatibus.
+                I'm a passionate <strong>full-stack developer</strong> with 5+
+                years of experience building{" "}
+                <strong>user-friendly web applications</strong> for startups and
+                enterprises. My work combines <strong>clean code</strong>,
+                modern design principles, and
+                <strong>UX-focused development</strong>.
               </p>
               <p className="text-white/80 mb-6 leading-relaxed">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam cupiditate vitae laudantium iusto ut, assumenda similique recusandae id, nobis molestias enim aspernatur vel quis repudiandae libero sequi, praesentium et illum!
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium eaque dolores obcaecati natus quas impedit, saepe amet eveniet id hic quasi, eligendi laborum cupiditate ad repellendus culpa beatae necessitatibus. Nihil.
+                My approach combines clean code, modern design principles, and a
+                deep understanding of user experience. I believe that the best
+                digital products are both visually appealing and technically
+                excellent.
               </p>
               <p className="text-white/80 mb-8 leading-relaxed">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam itaque
+                When I'm not coding, you can find me exploring new technologies,
+                contributing to <strong>open-source</strong> projects, or
+                sharing my knowledge through <strong>writing</strong>.
               </p>
               <button className="button-outline">Download CV</button>
             </div>

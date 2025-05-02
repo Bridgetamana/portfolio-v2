@@ -45,7 +45,7 @@ export const useScrollNavigation = () => {
 
       const touchEndY = e.changedTouches[0].clientY;
       const touchDiff = touchEndY - touchStartY;
-      if (Math.abs(touchDiff) < 50) return;
+      if (Math.abs(touchDiff) < 100) return;
       const now = Date.now();
       if (now - lastScrollTime < 1000 || isNavigating) {
         return;
