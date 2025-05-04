@@ -2,7 +2,7 @@
 import { useEffect, useState, useRef } from "react";
 import { useRouter, usePathname } from "next/navigation";
 
-const ROUTES = ["/", "/about", "/service", "/projects", "/blog", "/contact"];
+const ROUTES = ["/", "/about", "/skill", "/projects", "/blog", "/contact"];
 
 export const useScrollNavigation = () => {
   const router = useRouter();

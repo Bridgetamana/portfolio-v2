@@ -14,7 +14,7 @@ export default function Header() {
   const menuItems = [
     { title: "Home", path: "/" },
     { title: "About", path: "/about" },
-    { title: "Service", path: "/service" },
+    { title: "Skill", path: "/skill" },
     { title: "Projects", path: "/projects" },
     { title: "Blog", path: "/blog" },
   ];
@@ -24,7 +24,7 @@ export default function Header() {
   };
 
   return (
-    <header className="fixed w-full top-0 z-50 py-4 px-8">
+    <header className="fixed w-full top-0 z-50 py-4 px-8 bg-background/80 backdrop-blur-md">
       <div className="flex items-center justify-between">
         <div className="flex items-center justify-between w-full md:hidden">
           <Logo />

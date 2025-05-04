@@ -1,5 +1,3 @@
-import Logo from "@/components/Logo";
-
 export default function service() {
   const skills = [
     "React",
