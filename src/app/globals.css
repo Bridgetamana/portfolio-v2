@@ -1,39 +1,38 @@
 @import "tailwindcss";
 
-@layer utilities {
-  :root {
-    --background: 0 0% 3.9%;
-    --foreground: 0 0% 98%;
-    --card: 0 0% 5%;
-    --card-foreground: 0 0% 98%;
-    --popover: 0 0% 3.9%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 0 0% 100%;
-    --primary-foreground: 0 0% 3.9%;
-    --secondary: 0 0% 10%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 0 0% 12%;
-    --muted-foreground: 0 0% 65%;
-    --accent: 45 37% 45%;
-    --accent-foreground: 0 0% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 15%;
-    --input: 0 0% 15%;
-    --ring: 45 37% 45%;
-    --radius: 0.75rem;
-  }
+@theme {
+  --color-background: hsl(0 0% 3.9%);
+  --color-foreground: hsl(0 0% 98%);
+  --color-card: hsl(0 0% 5%);
+  --color-card-foreground: hsl(0 0% 98%);
+  --color-popover: hsl(0 0% 3.9%);
+  --color-popover-foreground: hsl(0 0% 98%);
+  --color-primary: hsl(0 0% 100%);
+  --color-primary-foreground: hsl(0 0% 3.9%);
+  --color-secondary: hsl(0 0% 10%);
+  --color-secondary-foreground: hsl(0 0% 98%);
+  --color-muted: hsl(0 0% 12%);
+  --color-muted-foreground: hsl(0 0% 65%);
+  --color-accent: hsl(45 37% 45%);
+  --color-accent-foreground: hsl(0 0% 98%);
+  --color-destructive: hsl(0 62.8% 30.6%);
+  --color-destructive-foreground: hsl(0 0% 98%);
+  --color-border: hsl(0 0% 15%);
+  --color-input: hsl(0 0% 15%);
+  --color-ring: hsl(45 37% 45%);
+  --radius: 0.75rem;
+  --radius-sm: calc(var(--radius) - 4px);
 }
 
-@layer utilities {
+@layer base {
   .border-border {
-    border-color: hsl(var(--border));
+    border-color: var(--color-border);
   }
   .bg-background {
-    background-color: hsl(var(--background));
+    background-color: var(--color-background);
   }
   .text-foreground {
-    color: hsl(var(--foreground));
+    color: var(--color-foreground);
   }
   .menu-item {
     position: relative;
@@ -51,7 +50,7 @@
     left: 50%;
     width: 0;
     height: 1px;
-    background-color: hsl(var(--accent));
+    background-color: var(--color-accent);
     transition-property: all;
     transition-duration: 300ms;
     transform: translateX(-50%);
@@ -80,8 +79,8 @@
     transition-duration: 300ms;
   }
   .social-icon:hover {
-    background-color: rgb(var(--accent) / 0.1);
-    border-color: hsl(var(--accent));
+    background-color: var(--color-accent) / 0.1;
+    border-color: var(--color-accent);
   }
   .button-outline {
     padding-left: 1.5rem;
@@ -95,8 +94,8 @@
     transition-duration: 300ms;
   }
   .button-outline:hover {
-    border-color: hsl(var(--accent));
-    color: hsl(var(--accent));
+    border-color: var(--color-accent);
+    color: var(--color-accent);
   }
   .cutout-button {
     position: relative;
@@ -107,7 +106,7 @@
     content: '';
     position: absolute;
     inset: 0;
-    background-color: hsl(var(--secondary) / 0.5);
+    background-color: var(--color-secondary) / 0.5;
     border-width: 1px;
     border-color: rgb(255 255 255 / 0.1);
     border-radius: 9999px;
@@ -115,7 +114,7 @@
     transition-duration: 300ms;
   }
   .cutout-button:hover::before {
-    background-color: hsl(var(--secondary) / 0.7);
-    border-color: rgb(var(--accent) / 0.3);
+    background-color: var(--color-secondary) / 0.7;
+    border-color: var(--color-accent) / 0.3;
   }
 }

@@ -2,21 +2,21 @@ import { Mail, MapPin, Phone } from "lucide-react";
 
 export default function contact() {
   return (
-    <div className="flex flex-1 py-24 px-8">
+    <div className="flex flex-1 pb-8 pt-20 px-8">
       <div className="max-w-6xl mx-auto">
-        <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl font-medium mb-12 text-center">
+        <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl font-medium mb-8 text-center">
           Contact
         </h1>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
           <div>
-            <h2 className="text-2xl font-serif mb-6">Get in Touch</h2>
+            <h2 className="text-2xl sm:text-3xl font-serif mb-6">Get in Touch</h2>
             <p className="text-white/70 mb-8">
               I'm always open to discussing new projects, creative ideas or
               opportunities to be part of your vision.
             </p>
 
-            <div className="space-y-6">
+            <div className="space-y-4">
               <div className="flex items-start space-x-4">
                 <Mail className="w-5 h-5 mt-1 text-accent" />
                 <div>
@@ -26,9 +26,9 @@ export default function contact() {
               </div>
             </div>
           </div>
-          <div className="bg-secondary/30 p-8 rounded-lg">
-            <h2 className="text-2xl font-serif mb-6">Send a Message</h2>
-            <form className="space-y-4">
+          <div className="bg-secondary/30 p-6 rounded-lg">
+            <h2 className="text-2xl font-serif mb-4">Send a Message</h2>
+            <form className="space-y-3">
               <div>
                 <label htmlFor="name" className="block mb-2 text-sm">
                   Your Name

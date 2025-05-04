@@ -1,15 +1,15 @@
 "use client";
 import React, { useState } from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import Logo from "./Logo";
 import { Menu, X } from "lucide-react";
 
 export default function Header() {
-  const router = useRouter();
+  const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const isActive = (path) => router.pathname === path;
+  const isActive = (path) => pathname === path;
 
   const menuItems = [
     { title: "Home", path: "/" },
@@ -67,7 +67,7 @@ export default function Header() {
             isMenuOpen ? "translate-x-0" : "-translate-x-full"
           } z-40 flex items-center justify-center`}
         >
-          <nav className="flex flex-col items-center space-y-8">
+          <nav className="flex flex-col items-center space-y-6">
             <Logo />
             {menuItems.map((item) => (
               <Link
@@ -83,7 +83,8 @@ export default function Header() {
             ))}
             <Link
               href="/contact"
-              className="relative z-10 px-5 py-2 font-light hover:text-gold transition-colors"
+              className="text-xl menu-item"
+              onClick={() => setIsMenuOpen(false)}
             >
               Contact
             </Link>

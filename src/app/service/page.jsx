@@ -20,7 +20,7 @@ export default function service() {
           Skills
         </h1>
 
-        <div className="mt-16 mb-16">
+        <div className="mt-16 mb-14">
           <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
             {skills.map((skill, index) => (
               <div
