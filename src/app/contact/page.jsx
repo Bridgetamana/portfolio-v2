@@ -1,15 +1,13 @@
 "use client";
 import { Mail, Check } from "lucide-react";
-import { useState } from "react";
+import { useState, useRef } from "react";
+import emailjs from "@emailjs/browser";
 
 export default function Contact() {
+  const form = useRef();
   const [isCopied, setIsCopied] = useState(false);
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
-  });
+  const [isSending, setIsSending] = useState(false);
+  const [sendStatus, setSendStatus] = useState({ success: false, message: "" });
 
   const copyEmail = () => {
     navigator.clipboard.writeText("bridget@example.com");
@@ -17,15 +15,40 @@ export default function Contact() {
     setTimeout(() => setIsCopied(false), 2000);
   };
 
-  const handleSubmit = async (e) => {
+  const sendEmail = (e) => {
     e.preventDefault();
-  };
+    setIsSending(true);
+    setSendStatus({ success: false, message: "" });
 
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.id]: e.target.value,
-    });
+    emailjs
+      .sendForm(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
+        form.current,
+        {
+          publicKey: process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY,
+        }
+      )
+      .then(
+        () => {
+          setSendStatus({
+            success: true,
+            message: "Message sent successfully!",
+          });
+          form.current.reset();
+        },
+        (error) => {
+          setSendStatus({
+            success: false,
+            message: "Failed to send message. Please try again.",
+          });
+          console.log("FAILED...", error.text);
+        }
+      )
+      .finally(() => {
+        setIsSending(false);
+        setTimeout(() => setSendStatus({ success: false, message: "" }), 5000);
+      });
   };
 
   return (
@@ -71,33 +94,31 @@ export default function Contact() {
           </div>
           <div className="bg-secondary/30 p-6 rounded-lg">
             <h2 className="text-2xl font-serif mb-4">Send a Message</h2>
-            <form className="space-y-3" onSubmit={handleSubmit}>
+            <form ref={form} className="space-y-3" onSubmit={sendEmail}>
               <div>
-                <label htmlFor="name" className="block mb-2 text-sm">
+                <label htmlFor="from_name" className="block mb-2 text-sm">
                   Your Name
                 </label>
                 <input
                   type="text"
-                  id="name"
+                  id="from_name"
+                  name="from_name"
                   className="w-full px-4 py-2 bg-background border border-border rounded-md"
                   placeholder="John Doe"
-                  value={formData.name}
-                  onChange={handleChange}
                   required
                 />
               </div>
 
               <div>
-                <label htmlFor="email" className="block mb-2 text-sm">
+                <label htmlFor="from_email" className="block mb-2 text-sm">
                   Your Email
                 </label>
                 <input
                   type="email"
-                  id="email"
+                  id="from_email"
+                  name="from_email"
                   className="w-full px-4 py-2 bg-background border border-border rounded-md"
                   placeholder="you@example.com"
-                  value={formData.email}
-                  onChange={handleChange}
                   required
                 />
               </div>
@@ -109,10 +130,9 @@ export default function Contact() {
                 <input
                   type="text"
                   id="subject"
+                  name="subject"
                   className="w-full px-4 py-2 bg-background border border-border rounded-md"
                   placeholder="Project Inquiry"
-                  value={formData.subject}
-                  onChange={handleChange}
                   required
                 />
               </div>
@@ -123,20 +143,32 @@ export default function Contact() {
                 </label>
                 <textarea
                   id="message"
+                  name="message"
                   rows={3}
                   className="w-full px-4 py-2 bg-background border border-border rounded-md"
                   placeholder="How can I help you?"
-                  value={formData.message}
-                  onChange={handleChange}
                   required
                 ></textarea>
               </div>
 
+              {sendStatus.message && (
+                <div
+                  className={`p-3 rounded-md ${
+                    sendStatus.success
+                      ? "bg-green-500/10 text-green-500"
+                      : "bg-red-500/10 text-red-500"
+                  }`}
+                >
+                  {sendStatus.message}
+                </div>
+              )}
+
               <button
                 type="submit"
-                className="w-full px-6 py-3 bg-accent text-white rounded-md hover:bg-accent/80 transition-colors"
+                disabled={isSending}
+                className="w-full px-6 py-3 bg-accent text-white rounded-md hover:bg-accent/80 transition-colors disabled:opacity-70 disabled:cursor-not-allowed"
               >
-                Send Message
+                {isSending ? "Sending..." : "Send Message"}
               </button>
             </form>
           </div>
