@@ -2,8 +2,8 @@ import { Mail, MapPin, Phone } from "lucide-react";
 
 export default function contact() {
   return (
-    <div className="min-h-screen py-24 px-8">
-      <div className="max-w-6xl mx-auto pt-12">
+    <div className="flex flex-1 py-24 px-8">
+      <div className="max-w-6xl mx-auto">
         <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl font-medium mb-12 text-center">
           Contact
         </h1>
@@ -24,13 +24,6 @@ export default function contact() {
                   <p className="text-white/70">bridget@example.com</p>
                 </div>
               </div>
-              <div className="flex items-start space-x-4">
-                <MapPin className="w-5 h-5 mt-1 text-accent" />
-                <div>
-                  <h3 className="font-medium">Location</h3>
-                  <p className="text-white/70">Mars</p>
-                </div>
-              </div>
             </div>
           </div>
           <div className="bg-secondary/30 p-8 rounded-lg">
@@ -45,18 +38,6 @@ export default function contact() {
                   id="name"
                   className="w-full px-4 py-2 bg-background border border-border rounded-md"
                   placeholder="John Doe"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="email" className="block mb-2 text-sm">
-                  Email Address
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  className="w-full px-4 py-2 bg-background border border-border rounded-md"
-                  placeholder="john@example.com"
                 />
               </div>
 
@@ -78,7 +59,7 @@ export default function contact() {
                 </label>
                 <textarea
                   id="message"
-                  rows={4}
+                  rows={3}
                   className="w-full px-4 py-2 bg-background border border-border rounded-md"
                   placeholder="How can I help you?"
                 ></textarea>

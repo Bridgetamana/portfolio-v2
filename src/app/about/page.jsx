@@ -2,8 +2,8 @@ import Logo from "@/components/Logo";
 
 export default function about() {
     return (
-      <div className="min-h-screen py-24 px-8">
-        <div className="max-w-6xl mx-auto pt-12">
+      <div className="flex-1 flex py-20 px-8">
+        <div className="max-w-6xl mx-auto">
           <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl font-medium mb-12 text-center">
             About Us
           </h1>

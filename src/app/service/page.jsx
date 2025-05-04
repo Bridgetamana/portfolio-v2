@@ -14,8 +14,8 @@ export default function service() {
   ];
 
   return (
-    <div className="min-h-screen py-24 px-8">
-      <div className="max-w-6xl mx-auto pt-12">
+    <div className="flex flex-1 py-24 px-8">
+      <div className="max-w-6xl mx-auto">
         <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl font-medium mb-12 text-center">
           Skills
         </h1>
@@ -25,9 +25,9 @@ export default function service() {
             {skills.map((skill, index) => (
               <div
                 key={index}
-                className="bg-secondary/30 border border-white/10 rounded-lg p-6 text-center hover:border-gold/30 transition-all hover:bg-secondary/50"
+                className="bg-secondary/30 border border-white/10 rounded-lg p-4 sm:p-6 text-center hover:border-gold/30 transition-all hover:bg-secondary/50"
               >
-                <span className="text-lg">{skill}</span>
+                <span className="text-sm sm:text-base">{skill}</span>
               </div>
             ))}
           </div>
