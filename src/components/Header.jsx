@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Logo from "./Logo";
@@ -8,6 +8,7 @@ import { Menu, X } from "lucide-react";
 export default function Header() {
   const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [hasScrolled, setHasScrolled] = useState(false);
 
   const isActive = (path) => pathname === path;
 
@@ -23,8 +24,26 @@ export default function Header() {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setHasScrolled(window.scrollY > 10);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <header className="fixed w-full top-0 z-50 py-4 px-8 bg-background/80 backdrop-blur-md">
+    <header
+      className={`fixed w-full top-0 z-50 py-4 px-8 transition-all duration-300 ${
+        hasScrolled
+          ? "bg-background/80 backdrop-blur-lg shadow-md"
+          : "bg-transparent"
+      }`}
+    >
       <div className="flex items-center justify-between">
         <div className="flex items-center justify-between w-full md:hidden">
           <Logo />
@@ -63,7 +82,7 @@ export default function Header() {
           </Link>
         </nav>
         <div
-          className={`fixed inset-0 bg-background transition-transform duration-300 ease-in-out md:hidden ${
+          className={`fixed inset-0 bg-background/95 backdrop-blur-md transition-all duration-300 ease-in-out md:hidden ${
             isMenuOpen ? "translate-x-0" : "-translate-x-full"
           } z-40 flex items-center justify-center`}
         >
