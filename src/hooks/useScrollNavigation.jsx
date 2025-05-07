@@ -10,7 +10,25 @@ export const useScrollNavigation = () => {
   const [isNavigating, setIsNavigating] = useState(false);
   const [lastScrollTime, setLastScrollTime] = useState(0);
   const [touchStartY, setTouchStartY] = useState(null);
+  const [isMobile, setIsMobile] = useState(false);
   const scrollTimeout = useRef(null);
+
+  useEffect(() => {
+    const checkIfMobile = () => {
+      const isTouchDevice =
+        "ontouchstart" in window || navigator.maxTouchPoints > 0;
+      const isSmallScreen = window.innerWidth <= 768;
+      setIsMobile(isTouchDevice && isSmallScreen);
+    };
+
+    checkIfMobile();
+    window.addEventListener("resize", checkIfMobile);
+
+    return () => {
+      window.removeEventListener("resize", checkIfMobile);
+    };
+  }, []);
+
   const shouldNavigate = (direction) => {
     const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
     const atBottom = scrollTop + clientHeight >= scrollHeight - 10;
@@ -19,6 +37,7 @@ export const useScrollNavigation = () => {
   };
 
   useEffect(() => {
+    if (isMobile) return;
     const handleWheel = (event) => {
       const now = Date.now();
       if (now - lastScrollTime < 1000 || isNavigating) {
@@ -111,18 +130,25 @@ export const useScrollNavigation = () => {
     };
 
     window.addEventListener("wheel", handleWheel, { passive: false });
-    window.addEventListener("touchstart", handleTouchStart, { passive: true });
-    window.addEventListener("touchmove", handleTouchMove, { passive: false });
-    window.addEventListener("touchend", handleTouchEnd, { passive: true });
+    if (!isMobile) {
+      window.addEventListener("touchstart", handleTouchStart, {
+        passive: true,
+      });
+      window.addEventListener("touchmove", handleTouchMove, { passive: false });
+      window.addEventListener("touchend", handleTouchEnd, { passive: true });
+    }
 
     return () => {
       window.removeEventListener("wheel", handleWheel);
-      window.removeEventListener("touchstart", handleTouchStart);
-      window.removeEventListener("touchmove", handleTouchMove);
-      window.removeEventListener("touchend", handleTouchEnd);
+      if (!isMobile) {
+        window.removeEventListener("touchstart", handleTouchStart);
+        window.removeEventListener("touchmove", handleTouchMove);
+        window.removeEventListener("touchend", handleTouchEnd);
+      }
+
       if (scrollTimeout.current) clearTimeout(scrollTimeout.current);
     };
-  }, [pathname, router, lastScrollTime, isNavigating, touchStartY]);
+  }, [pathname, router, lastScrollTime, isNavigating, touchStartY, isMobile]);
 
   const navigateToNextPage = () => {
     const currentIndex = ROUTES.indexOf(pathname);
@@ -138,5 +164,5 @@ export const useScrollNavigation = () => {
     }
   };
 
-  return { navigateToNextPage, navigateToPrevPage };
+  return { navigateToNextPage, navigateToPrevPage, isMobile };
 };
