@@ -40,7 +40,7 @@ export default function projects() {
                   alt={project.title}
                   fill
                   sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
-                  priority={index < 3} // Prioritize the first 3 images
+                  priority={index < 3} 
                   className={`object-cover transition-transform duration-300 transform ${
                     hoveredProject === project.id ? "scale-105" : "scale-100"
                   }`}
@@ -51,7 +51,7 @@ export default function projects() {
                 <h3 className="font-serif text-xl mb-2 group-hover:text-accent transition-colors duration-300">
                   {project.title}
                 </h3>
-                <p className="text-white/70 mb-3 h-18">{project.description}</p>
+                <p className="text-white/70 mb-3 h-24 text-sm">{project.description}</p>
                 <div className="flex flex-wrap gap-2">
                   {project.tags?.map((tag, idx) => (
                     <span

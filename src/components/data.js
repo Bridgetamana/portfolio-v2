@@ -1,38 +1,38 @@
 export const projectsData = [
     {
         id: 1,
-        title: "E-Commerce Platform",
-        description: "A responsive online store with React and Next.js",
-        image: "/my-notion-face-portrait.png",
-        liveLink: "www.example.com",
-        tags: ["React", "TailwindCSS", "Chart.js"],
+        title: "GetProductiv Website",
+        description: "A modern, responsive site for the GetProductiv focus app, built with Next.js and Tailwind CSS. Features clean UI design, and optimized performance.",
+        image: "/getproductiv-screenshot.jpeg",
+        liveLink: "https://www.getproductiv.africa/",
+        tags: ["Next.js", "TailwindCSS", "Figma", "UI Design"],
 
     },
     {
         id: 2,
-        title: "Portfolio Dashboard",
-        description: "Analytics dashboard with data visualization",
-        image: "/my-notion-face-portrait.png",
-        liveLink: "www.example.com",
-        tags: ["React", "TailwindCSS", "Chart.js"],
+        title: "AI Text Processing Interface",
+        description: "An AI-assisted web app that uses Chrome’s built-in AI APIs for real-time, translation, and language detection.",
+        image: "/getproductiv-screenshot.jpeg",
+        liveLink: "https://bridgetamana.github.io/language-translation-api-demo.github.io/",
+        tags: ["HTML", "Javascript", "CSS", "Chrome Nano API"],
 
     },
     {
         id: 3,
-        title: "AI Content Generator",
-        description: "AI-powered content creation tool",
-        image: "/my-notion-face-portrait.png",
-        liveLink: "www.example.com",
-        tags: ["React", "TailwindCSS", "Chart.js"],
+        title: "E-commerce Admin Dashboard",
+        description: "An admin dashboard for managing products, orders, and customer data in an e-commerce store.",
+        image: "/admin-dashboard-screenshot.jpeg",
+        liveLink: "https://admin-dashboard-mu-ebon.vercel.app/",
+        tags: ["NextJs", "TailwindCSS", "Chart.js"],
 
     },
     {
         id: 4,
-        title: "Mobile Fitness App",
-        description: "Health tracking application with workout plans",
-        image: "/my-notion-face-portrait.png",
-        liveLink: "www.example.com",
-        tags: ["React", "TailwindCSS", "Chart.js"],
+        title: "Watch Online Store",
+        description: "An elegant e-commerce web app for selling watches, with a matching admin dashboard for managing inventory, orders, and customers. Built using React and Tailwind CSS.",
+        image: "/watch-store-screenshot.jpeg",
+        liveLink: "https://ecommerce-store-tau-nine.vercel.app/",
+        tags: ["NextJs", "TailwindCSS"],
 
     },
     {
