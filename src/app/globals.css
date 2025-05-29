@@ -97,6 +97,23 @@
     border-color: var(--color-accent);
     color: var(--color-accent);
   }
+  .button-filled {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-width: 1px;
+    border-color: rgb(255 255 255 / 0.2);
+    background-color: rgb(255 255 255 / 0.2);
+    border-radius: 0.375rem;
+    transition-property: all;
+    transition-duration: 300ms;
+  }
+  .button-filled:hover {
+    border-color: var(--color-accent);
+    background-color: var(--color-accent);
+    color: white;
+  }
   .cutout-button {
     position: relative;
     overflow: hidden;

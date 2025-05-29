@@ -1,6 +1,5 @@
 "use client";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
 
 export default function Home() {
   return (
@@ -10,13 +9,16 @@ export default function Home() {
           <h1 className="font-serif text-6xl sm:text-7xl md:text-8xl font-bold mb-4">
             Bridget
           </h1>
-          <h2 className="font-sans text-xl md:text-2xl tracking-widest text-white/80 mb-12">
-            WEB DEVELOPER
+          <h2 className="font-sans text-xl md:text-2xl tracking-widest text-white/80 mb-4">
+            FRONTEND DEVELOPER
           </h2>
-          <Link href="/about" className="inline-flex items-center space-x-2 button-outline">
-            <span>Explore</span>
-            <ArrowRight className="w-4 h-4" />
-          </Link>
+          <p className="max-w-xl mx-auto text-base md:text-lg text-white/70 mb-8">
+            Frontend developer with extensive knowledge of JavaScript, web technologies, and cross platform development.
+          </p>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Link href="/projects" className="button-filled">View Projects</Link>
+            <Link href="/contact" className="button-outline">Contact Me</Link>
+          </div>
         </div>
       </div>
     </div>

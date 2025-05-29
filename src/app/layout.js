@@ -3,8 +3,25 @@ import "./globals.css";
 import ClientLayout from "./clientLayout";
 
 export const metadata = {
-  title: "Bridget Amana",
-  description: "portfolio",
+  title: "Bridget Amana | Frontend Developer",
+  description: "Frontend developer with extensive knowledge of JavaScript, web technologies, and cross platform development.",
+  authors: [{ name: "Bridget Amana" }],
+  creator: "Bridget Amana",
+  openGraph: {
+    title: "Bridget Amana | Frontend Developer",
+    description: "Explore the work of Bridget Amana, a frontend developer focused on building responsive, high-performance web applications with React and Next.js.",
+    url: "https://www.bridgetamana.tech/",
+    siteName: "Bridget Amana Portfolio",
+    images: [
+      {
+        url: "https://www.bridgetamana.tech/opengraph-image.jpeg", 
+        width: 1100,
+        height: 660,
+        alt: "Bridget Amana Portfolio",
+      },
+    ],
+    type: "website",
+  },
 };
 
 const inter = Inter({
