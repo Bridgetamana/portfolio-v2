@@ -1,22 +1,27 @@
 export default function service() {
   const skills = [
+    "JavaScript",
+    "TypeScript",
     "React",
     "Next.js",
-    "TypeScript",
-    "JavaScript",
-    "Node.js",
     "Tailwind CSS",
+    "SASS",
+    "Node.js",
     "GraphQL",
-    "UI/UX Design",
+    "Figma",
     "Responsive Design",
-  ];
+    "UI Design",
+  ];  
 
   return (
     <div className="flex flex-1 py-24 px-8">
       <div className="max-w-6xl mx-auto">
-        <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl font-medium mb-12 text-center">
+        <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl font-medium text-center">
           Skills
         </h1>
+        <p className="text-center text-white/70 text-sm">
+          Tools, and frameworks I use regularly
+        </p>
 
         <div className="mt-16 mb-14">
           <div className="grid grid-cols-2 md:grid-cols-3 gap-6">

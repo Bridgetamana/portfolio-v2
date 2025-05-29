@@ -16,7 +16,7 @@ export default function projects() {
         </h1>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-          {projectsData.map((project) => (
+          {projectsData.map((project, index) => (
             <div
               key={project.id}
               className="bg-secondary/30 rounded-lg overflow-hidden shadow-lg group"
@@ -38,18 +38,30 @@ export default function projects() {
                 <Image
                   src={project.image}
                   alt={project.title}
-                  width={500}
-                  height={300}
-                  className={`transition-transform duration-300 transform ${
+                  fill
+                  sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+                  priority={index < 3} // Prioritize the first 3 images
+                  className={`object-cover transition-transform duration-300 transform ${
                     hoveredProject === project.id ? "scale-105" : "scale-100"
                   }`}
                 />
               </div>
               <div className="p-6">
+                {" "}
                 <h3 className="font-serif text-xl mb-2 group-hover:text-accent transition-colors duration-300">
                   {project.title}
                 </h3>
-                <p className="text-white/70">{project.description}</p>
+                <p className="text-white/70 mb-3 h-18">{project.description}</p>
+                <div className="flex flex-wrap gap-2">
+                  {project.tags?.map((tag, idx) => (
+                    <span
+                      key={idx}
+                      className="text-xs bg-white/10 text-white/70 px-2 py-1 rounded"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
               </div>
             </div>
           ))}

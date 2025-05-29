@@ -5,6 +5,8 @@ export const projectsData = [
         description: "A responsive online store with React and Next.js",
         image: "/my-notion-face-portrait.png",
         liveLink: "www.example.com",
+        tags: ["React", "TailwindCSS", "Chart.js"],
+
     },
     {
         id: 2,
@@ -12,6 +14,8 @@ export const projectsData = [
         description: "Analytics dashboard with data visualization",
         image: "/my-notion-face-portrait.png",
         liveLink: "www.example.com",
+        tags: ["React", "TailwindCSS", "Chart.js"],
+
     },
     {
         id: 3,
@@ -19,6 +23,8 @@ export const projectsData = [
         description: "AI-powered content creation tool",
         image: "/my-notion-face-portrait.png",
         liveLink: "www.example.com",
+        tags: ["React", "TailwindCSS", "Chart.js"],
+
     },
     {
         id: 4,
@@ -26,6 +32,8 @@ export const projectsData = [
         description: "Health tracking application with workout plans",
         image: "/my-notion-face-portrait.png",
         liveLink: "www.example.com",
+        tags: ["React", "TailwindCSS", "Chart.js"],
+
     },
     {
         id: 5,
@@ -33,6 +41,8 @@ export const projectsData = [
         description: "Community engagement and content sharing application",
         image: "/my-notion-face-portrait.png",
         liveLink: "www.example.com",
+        tags: ["React", "TailwindCSS", "Chart.js"],
+
     },
     {
         id: 6,
@@ -40,5 +50,7 @@ export const projectsData = [
         description: "Productivity app for personal and team organization",
         image: "/my-notion-face-portrait.png",
         liveLink: "www.example.com",
+        tags: ["React", "TailwindCSS", "Chart.js"],
+
     }
 ];
