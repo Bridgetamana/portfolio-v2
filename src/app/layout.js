@@ -1,6 +1,6 @@
 import { Inter } from "next/font/google";
-import "./globals.css";
 import ClientLayout from "./clientLayout";
+import "./globals.css";
 
 export const metadata = {
   title: "Bridget Amana | Frontend Developer",
