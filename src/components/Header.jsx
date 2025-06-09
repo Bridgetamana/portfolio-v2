@@ -35,7 +35,6 @@ export default function Header() {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-
   return (
     <header
       className={`fixed w-full top-0 z-50 py-4 px-8 transition-all duration-300 ${
@@ -43,14 +42,16 @@ export default function Header() {
           ? "bg-background/80 backdrop-blur-lg shadow-md"
           : "bg-transparent"
       }`}
+      role="banner"
     >
       <div className="flex items-center justify-between">
         <div className="flex items-center justify-between w-full md:hidden">
           <Logo />
           <button
             onClick={toggleMenu}
-            className="text-white focus:outline-none z-50"
-            aria-label="Toggle menu"
+            className="text-white focus:outline-none focus:ring-2 focus:ring-accent z-50"
+            aria-label={isMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+            aria-expanded={isMenuOpen}
           >
             {isMenuOpen ? (
               <X className="h-6 w-6" />
@@ -59,16 +60,16 @@ export default function Header() {
             )}
           </button>
         </div>
-        <nav className="hidden md:flex items-center justify-between flex-1">
+        <nav className="hidden md:flex items-center justify-between flex-1" role="navigation" aria-label="Main navigation">
           <div className="mx-6">
             <Logo />
-          </div>
-          <div className="flex items-center space-x-6">
+          </div>          <div className="flex items-center space-x-6">
             {menuItems.map((item) => (
               <Link
                 key={item.path}
                 href={item.path}
                 className={`menu-item ${isActive(item.path) ? "active" : ""}`}
+                aria-current={isActive(item.path) ? "page" : undefined}
               >
                 {item.title}
               </Link>
@@ -76,7 +77,7 @@ export default function Header() {
           </div>
           <Link
             href="/contact"
-            className="relative z-10 px-5 py-2 font-light transition-colors cutout-button"
+            className="relative z-10 px-5 py-2 font-light transition-colors cutout-button focus:ring-2 focus:ring-accent focus:outline-none"
           >
             Contact
           </Link>
