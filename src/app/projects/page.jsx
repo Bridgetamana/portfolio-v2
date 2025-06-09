@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
@@ -34,16 +34,20 @@ export default function projects() {
                     View Live <ExternalLink size={16} />
                   </Link>
                 </div>
-                <div className="absolute inset-0 bg-gradient-to-br from-accent/40 to-secondary/20"></div>
-                <Image
+                <div className="absolute inset-0 bg-gradient-to-br from-accent/40 to-secondary/20"></div>                <Image
                   src={project.image}
-                  alt={project.title}
+                  alt={`${project.title} - Portfolio project showing ${project.description.slice(0, 50)}...`}
                   fill
-                  sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
-                  priority={index < 3} 
-                  className={`object-cover transition-transform duration-300 transform ${
-                    hoveredProject === project.id ? "scale-105" : "scale-100"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  priority={index < 3}
+                  placeholder="blur"
+                  blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyDjHFN2wNqRm1c7aaV1Bme3n1aY"
+                  className={`object-cover transition-all duration-500 ${
+                    hoveredProject === project.id ? "scale-110" : "scale-100"
                   }`}
+                  style={{
+                    filter: hoveredProject === project.id ? 'brightness(1.1)' : 'brightness(1)',
+                  }}
                 />
               </div>
               <div className="p-6">
@@ -51,7 +55,9 @@ export default function projects() {
                 <h3 className="font-serif text-xl mb-2 group-hover:text-accent transition-colors duration-300">
                   {project.title}
                 </h3>
-                <p className="text-white/70 mb-3 h-24 text-sm">{project.description}</p>
+                <p className="text-white/70 mb-3 h-24 text-sm">
+                  {project.description}
+                </p>
                 <div className="flex flex-wrap gap-2">
                   {project.tags?.map((tag, idx) => (
                     <span
